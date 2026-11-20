@@ -43,3 +43,28 @@ def normalize_row(cfg: dict, raw: dict) -> dict:
     except ValueError as exc:
         raise ValueError("bad settlement date") from exc
     return {"reference_no": ref, "amount": amount, "status": status, "settlement_date": settled}
+
+
+_SPARK_FMT = {"%Y": "yyyy", "%m": "MM", "%d": "dd", "%H": "HH", "%M": "mm", "%S": "ss"}
+
+
+def strptime_to_spark(fmt: str) -> str:
+    """Convert a strptime format (as used in providers.yaml) to a Spark datetime pattern."""
+    out, lit, i = [], "", 0
+
+    def flush():
+        nonlocal lit
+        if lit:
+            out.append(f"'{lit}'" if any(ch.isalpha() for ch in lit) else lit)
+            lit = ""
+
+    while i < len(fmt):
+        if fmt[i:i + 2] in _SPARK_FMT:
+            flush()
+            out.append(_SPARK_FMT[fmt[i:i + 2]])
+            i += 2
+        else:
+            lit += fmt[i]
+            i += 1
+    flush()
+    return "".join(out)

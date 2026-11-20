@@ -1,0 +1,3 @@
+# Reconciliation settings (read by src/reconciliation/engine.py)
+amount_tolerance: 0                 # absolute IDR difference still treated as equal
+ignore_pending_without_partner: true  # internal PENDING rows with no partner record are not MISSING_IN_PARTNER

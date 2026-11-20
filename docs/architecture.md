@@ -15,12 +15,12 @@ flowchart LR
 
 | Component | Image / library | Role | RAM limit |
 |---|---|---|---|
-| MinIO | `minio/minio` | S3-compatible object store | 512 MB |
+| MinIO | built from source (`docker/minio`) | S3-compatible object store | 512 MB |
 | REST Catalog | `apache/iceberg-rest-fixture:1.9.2` | Table registration (SQLite-backed, persisted in a volume) | 512 MB |
 | Pipeline | custom image: Python 3.11, Java 17, PySpark 3.5.5, Iceberg 1.9.2 jars, DuckDB | Spark local-mode writer, CLI | 3 GB |
 
 Spark runs in local mode inside the `pipeline` container, so there is no separate Spark service. `docker/spark/` is reserved for a future standalone cluster profile.
 
-**Status:** MinIO and the REST catalog were verified healthy on Docker; Spark/Iceberg stages have not been run. MinIO is built from source (`docker/minio`).
+**Status:** MinIO and the REST catalog were verified healthy on Docker; Spark/Iceberg stages are implemented but have not been run. MinIO is built from source (`docker/minio`).
 
 DuckDB reading Iceberg tables via the REST catalog is **not yet verified**; it will be tested before any interoperability claim is made.

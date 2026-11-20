@@ -8,7 +8,7 @@
 6. **DuckDB.** Handy for local investigations on a single machine. Iceberg/REST support depends on the DuckDB version and extension; **not yet verified here**.
 7. **When this is unnecessary.** Small append-only data, one engine, no audit or correction needs.
 8. **Operational cost.** Catalog operations, compaction, snapshot expiration, orphan-file cleanup, monitoring, upgrades.
-9. **Limitations of this implementation.** Single host, local-mode Spark, synthetic data, demo credentials, REST fixture catalog, no Airflow/Trino, and the Silver/CDC/reconciliation/Iceberg-demo stages are not implemented yet; Bronze ingestion code is written but has not been run.
+9. **Limitations of this implementation.** Single host, local-mode Spark, synthetic data, demo credentials, REST fixture catalog, no Airflow/Trino, and the whole Spark pipeline (Bronze to Gold, CDC, Iceberg demo) is written but has never been executed.
 10. **Alternatives.** Delta Lake or Apache Hudi (table formats); Hive Metastore, Nessie or Polaris-style catalogs; HDFS or Ceph for storage; a warehouse database for small volumes.
 
 ## Decision guide
