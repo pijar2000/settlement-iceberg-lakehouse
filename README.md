@@ -63,7 +63,7 @@ Data engineering and lakehouse architecture; distributed-processing tooling (Spa
 ## Quick start (demo stack)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/settlement-iceberg-lakehouse.git
+git clone https://github.com/pijar2000/settlement-iceberg-lakehouse.git
 cd settlement-iceberg-lakehouse
 cp .env.example .env            # PowerShell: Copy-Item .env.example .env
 docker compose up -d --build    # first build compiles MinIO from source and is slow
