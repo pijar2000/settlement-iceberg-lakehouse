@@ -27,7 +27,7 @@ WHEN MATCHED AND s.op = 'U' THEN UPDATE SET *
 WHEN MATCHED AND s.op = 'D' THEN DELETE
 WHEN NOT MATCHED AND s.op = 'I' THEN INSERT *;
 ```
-(Illustrative; the repository's actual CDC job is not implemented yet.)
+(Illustrative. The repository's CDC job is in `src/cdc/apply.py` and `sql/silver/merge_cdc.sql`; it is implemented but has not been run yet.)
 
 ## 2. Historical financial audit
 Yesterday's reconciliation report differs from today's.
