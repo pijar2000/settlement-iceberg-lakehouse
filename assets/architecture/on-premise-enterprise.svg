@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420" width="1100" height="420" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1100" height="420" fill="#0b1020"/>
+  <text x="30" y="38" font-size="22" font-weight="700" fill="#ffffff">Illustrative on-premise topology (conceptual, not deployed here)</text>
+  <rect x="20" y="55" width="1060" height="290" rx="14" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="8 5"/>
+  <text x="36" y="78" font-size="13" fill="#a78bfa">Private data center - internal network, no public cloud</text>
+  <g font-size="14" fill="#ffffff" text-anchor="middle">
+    <rect x="40" y="100" width="190" height="85" rx="10" fill="#1e2548" stroke="#22d3ee" stroke-width="2"/><text x="135" y="130" font-weight="700">Server 1</text><text x="135" y="152">Airflow</text><text x="135" y="170" font-size="12" fill="#cbd5e1">orchestration</text>
+    <rect x="260" y="100" width="190" height="85" rx="10" fill="#1e2548" stroke="#22d3ee" stroke-width="2"/><text x="355" y="130" font-weight="700">Server 2</text><text x="355" y="152">Spark driver</text><text x="355" y="170" font-size="12" fill="#cbd5e1">scheduling</text>
+    <rect x="480" y="100" width="190" height="85" rx="10" fill="#1e2548" stroke="#22d3ee" stroke-width="2"/><text x="575" y="130" font-weight="700">Server 3-4</text><text x="575" y="152">Spark workers</text>
+    <rect x="700" y="100" width="190" height="85" rx="10" fill="#1e2548" stroke="#22d3ee" stroke-width="2"/><text x="795" y="130" font-weight="700">Server 8-9</text><text x="795" y="152">Trino coordinator</text><text x="795" y="170" font-size="12" fill="#cbd5e1">+ workers</text>
+    <rect x="920" y="100" width="140" height="85" rx="10" fill="#1e2548" stroke="#8b5cf6" stroke-width="2"/><text x="990" y="135">BI</text><text x="990" y="155" font-size="12" fill="#cbd5e1">Superset / Power BI</text>
+    <rect x="260" y="230" width="190" height="85" rx="10" fill="#2a1f4d" stroke="#8b5cf6" stroke-width="2"/><text x="355" y="260" font-weight="700">Server 7</text><text x="355" y="282">REST Catalog</text><text x="355" y="300" font-size="12" fill="#cbd5e1">+ PostgreSQL</text>
+    <rect x="480" y="230" width="410" height="85" rx="10" fill="#2a1f4d" stroke="#22d3ee" stroke-width="2.5"/><text x="685" y="260" font-weight="700">Server 5-6 (or more)</text><text x="685" y="282">Distributed object storage (MinIO / Ceph)</text><text x="685" y="300" font-size="12" fill="#cbd5e1">Iceberg data + metadata files, erasure coding / replication</text>
+    <rect x="40" y="230" width="190" height="85" rx="10" fill="#1e2548" stroke="#8b5cf6" stroke-width="2"/><text x="135" y="260" font-weight="700">Sources</text><text x="135" y="282">PostgreSQL, SFTP</text><text x="135" y="300" font-size="12" fill="#cbd5e1">settlement files</text>
+  </g>
+  <text x="30" y="375" font-size="13" fill="#cbd5e1">Server counts are an example, not a requirement. HA, TLS, RBAC and backups need explicit design; none are implemented in this repository.</text>
+  <text x="30" y="396" font-size="13" fill="#94a3b8">The repository's docker-compose.yml is a single-host demo: no redundancy, no high availability.</text>
+</svg>

@@ -1,0 +1,12 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  lint-and-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install pyyaml==6.0.2 pytest==8.3.5 ruff==0.9.10
+      - run: ruff check .
+      - run: pytest -q   # integration tests are excluded by default (need Docker stack)

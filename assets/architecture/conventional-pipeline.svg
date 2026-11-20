@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 300" width="1100" height="300" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1100" height="300" fill="#0b1020"/>
+  <text x="30" y="40" font-size="22" font-weight="700" fill="#ffffff">Approach A: Conventional file-based pipeline</text>
+  <g font-size="15" fill="#ffffff" text-anchor="middle">
+    <rect x="30" y="80" width="170" height="70" rx="10" fill="#1e2548" stroke="#8b5cf6" stroke-width="2"/><text x="115" y="120">PostgreSQL /</text><text x="115" y="140">settlement files</text>
+    <rect x="250" y="80" width="170" height="70" rx="10" fill="#1e2548" stroke="#8b5cf6" stroke-width="2"/><text x="335" y="120">Python / Spark</text>
+    <rect x="470" y="80" width="170" height="70" rx="10" fill="#1e2548" stroke="#22d3ee" stroke-width="2"/><text x="555" y="120">Parquet files</text><text x="555" y="140">(folders)</text>
+    <rect x="690" y="80" width="170" height="70" rx="10" fill="#2a1f4d" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/><text x="775" y="120">Custom metadata</text><text x="775" y="140">&amp; versioning</text>
+    <rect x="910" y="80" width="160" height="70" rx="10" fill="#1e2548" stroke="#22d3ee" stroke-width="2"/><text x="990" y="120">SQL analytics</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" fill="none"><path d="M200 115H250M420 115H470M640 115H690M860 115H910"/></g>
+  <text x="690" y="180" font-size="13" fill="#fbbf24">Dashed = logic your team must build and operate</text>
+  <g font-size="14" fill="#cbd5e1">
+    <text x="30" y="225">Team-owned responsibilities: atomic file replacement - partial-publish protection - concurrent writers -</text>
+    <text x="30" y="248">version history - schema tracking - UPDATE/DELETE rewrites - reader consistency - orphan cleanup - repartitioning</text>
+    <text x="30" y="275" fill="#94a3b8">Feasible with custom engineering; the cost is maintaining that logic across every pipeline and engine.</text>
+  </g>
+</svg>

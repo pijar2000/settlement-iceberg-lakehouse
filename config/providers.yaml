@@ -1,0 +1,46 @@
+# Provider metadata: maps each partner's raw settlement file to the canonical schema.
+# columns      : canonical field -> source column name
+# amount_scale : source amount = IDR amount * scale (LINKAJA sends cents)
+# status_map   : source status value -> canonical status (SUCCESS|FAILED|PENDING)
+# date_format  : strptime/strftime format of the settlement date column
+providers:
+  OVO:
+    delimiter: ","
+    file_prefix: ovo_settlement
+    columns: {reference_no: ovo_ref, amount: amt, status: trx_status, settlement_date: settle_date}
+    amount_scale: 1
+    amount_decimals: 0
+    date_format: "%Y-%m-%d"
+    status_map: {SUCCESS: SUCCESS, FAILED: FAILED, PENDING: PENDING}
+  DANA:
+    delimiter: "|"
+    file_prefix: dana_recon
+    columns: {reference_no: merchant_trans_id, amount: amount_idr, status: status, settlement_date: settlement_time}
+    amount_scale: 1
+    amount_decimals: 2
+    date_format: "%d/%m/%Y"
+    status_map: {SUCCESS: SUCCESS, FAIL: FAILED, PROCESSING: PENDING}
+  GOPAY:
+    delimiter: ","
+    file_prefix: gopay_payout
+    columns: {reference_no: order_id, amount: gross_amount, status: transaction_status, settlement_date: settlement_ts}
+    amount_scale: 1
+    amount_decimals: 2
+    date_format: "%Y-%m-%dT%H:%M:%SZ"
+    status_map: {settlement: SUCCESS, deny: FAILED, pending: PENDING}
+  LINKAJA:
+    delimiter: ","
+    file_prefix: linkaja_report
+    columns: {reference_no: trxRef, amount: nominal, status: state, settlement_date: settled_on}
+    amount_scale: 100
+    amount_decimals: 0
+    date_format: "%Y%m%d"
+    status_map: {S: SUCCESS, F: FAILED, P: PENDING}
+  FINNET:
+    delimiter: ";"
+    file_prefix: finnet_settle
+    columns: {reference_no: inv_no, amount: total, status: result_code, settlement_date: settle_dt}
+    amount_scale: 1
+    amount_decimals: 0
+    date_format: "%Y-%m-%d"
+    status_map: {"00": SUCCESS, "99": FAILED, "01": PENDING}
