@@ -1,6 +1,6 @@
-# Enterprise Use Cases: NEXORA PAYMENTS
+# Enterprise Use Cases: AFFH IYH E-WALLET
 
-> **NEXORA PAYMENTS is fictional. All data is synthetic.** The scenarios describe logical processes. Unless stated, they have **not** been executed in this repository yet.
+> **AFFH IYH E-WALLET is fictional. All data is synthetic.** The scenarios describe logical processes. Unless stated, they have **not** been executed in this repository yet.
 
 ## Company profile
 A medium-to-large payment gateway running its own Linux servers in a private data center. It has an internal PostgreSQL transaction database, receives daily settlement files from external providers, has a Finance team needing daily reconciliation and a Data Engineering team that owns history. Regulation and policy prevent moving transaction data to public cloud.

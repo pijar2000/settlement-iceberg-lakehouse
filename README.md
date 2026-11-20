@@ -18,9 +18,9 @@ Synthetic multi-provider payment data → Spark → Apache Iceberg on MinIO (RES
 
 ---
 
-# Enterprise Case Study: NEXORA PAYMENTS
+# Enterprise Case Study: AFFH IYH E-WALLET
 
-> NEXORA PAYMENTS is a **fictional** company and all data is **synthetic**.
+> AFFH IYH E-WALLET is a **fictional** company and all data is **synthetic**.
 
 ## Business Context
 A medium-to-large payment gateway running its own Linux servers in a private data center. It has an internal PostgreSQL transaction database, receives daily settlement files from several providers, and its Finance team needs daily reconciliation. Security and regulation keep transaction data out of public cloud.

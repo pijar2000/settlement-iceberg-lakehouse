@@ -1,6 +1,6 @@
 # Conventional Parquet Pipeline vs Apache Iceberg Lakehouse
 
-Context: NEXORA PAYMENTS, a **fictional** payment gateway with synthetic data (see [enterprise_use_cases.md](enterprise_use_cases.md)).
+Context: AFFH IYH E-WALLET, a **fictional** payment gateway with synthetic data (see [enterprise_use_cases.md](enterprise_use_cases.md)).
 
 Responsibilities are different and complementary: **Spark** processes data, **Parquet** is a columnar file format, **Iceberg** is an open *table format* that tracks which files make up a table and its history, **MinIO/Ceph** store the bytes, a **catalog** points to the current table state. Iceberg does not replace Spark or Parquet (Iceberg data files are typically Parquet), and it does not by itself make queries faster: performance still depends on partitioning, file sizes, statistics, the query engine and storage.
 
