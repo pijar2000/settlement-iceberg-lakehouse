@@ -1,6 +1,6 @@
 # Reconciliation
 
-> Implemented in `sql/gold/reconciliation.sql` + `src/reconciliation/engine.py`. **Not yet executed.**
+> Implemented in `sql/gold/reconciliation.sql` + `src/reconciliation/engine.py`. Executed successfully in the full pipeline run.
 
 Full outer join of `silver.transactions` and `silver.partner_settlements` on `provider` + `reference_no`. First matching rule wins:
 

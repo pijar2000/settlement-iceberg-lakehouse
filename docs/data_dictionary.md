@@ -19,7 +19,7 @@ Schemas differ per provider and are defined in `config/providers.yaml`; each fil
 ## cdc_events
 `event_id`, `lsn`, `op` (I/U/D), `event_ts`, `transaction_id`, `merchant_id`, `provider`, `reference_no`, `amount`, `currency`, `status`, `source_file`, `batch_id`. DELETE events carry the key only.
 
-## Iceberg tables (implemented, not yet run)
+## Iceberg tables
 - `bronze.internal_transactions`, `bronze.cdc_events`: raw CSV columns as strings + `ingested_at`.
 - `bronze.partner_settlements`: `provider`, `payload` (map of raw columns), `source_file`, `batch_id`, `ingested_at`.
 - `silver.transactions` (partitioned `days(created_at)`): typed, deduplicated, CDC applied.

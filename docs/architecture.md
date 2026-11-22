@@ -21,6 +21,6 @@ flowchart LR
 
 Spark runs in local mode inside the `pipeline` container, so there is no separate Spark service. `docker/spark/` is reserved for a future standalone cluster profile.
 
-**Status:** MinIO and the REST catalog were verified healthy on Docker; Spark/Iceberg stages are implemented but have not been run. MinIO is built from source (`docker/minio`).
+**Status:** MinIO and the REST catalog were verified healthy on Docker; the Spark/Iceberg pipeline stages have been run end to end successfully. MinIO is built from source (`docker/minio`).
 
 DuckDB reading Iceberg tables via the REST catalog is **not yet verified**; it will be tested before any interoperability claim is made.

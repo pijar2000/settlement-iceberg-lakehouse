@@ -1,6 +1,6 @@
 # Iceberg features
 
-> Implemented in `src/iceberg_demo.py` (`python -m src.cli iceberg-demo`) on a throwaway table `demo.ledger`. **Never executed yet.**
+> Implemented in `src/iceberg_demo.py` (`python -m src.cli iceberg-demo`) on a throwaway table `demo.ledger`. Run successfully as part of the full pipeline.
 
 | Step | What it shows | Spark SQL / procedure |
 |---|---|---|
