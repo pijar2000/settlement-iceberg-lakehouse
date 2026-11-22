@@ -127,4 +127,4 @@ Description: *Production-style, Dockerized Apache Iceberg Lakehouse demonstratin
 Topics: `apache-iceberg` `data-engineering` `lakehouse` `apache-spark` `duckdb` `minio` `docker` `cdc` `data-platform` `payment-reconciliation`
 
 ## License
-MIT — see [LICENSE](LICENSE)..
+MIT — see [LICENSE](LICENSE).
