@@ -2,7 +2,7 @@
 
 Cara pakai:
   python -m src.cli analytics --engine duckdb
-Compatibility is NOT verified. Two access paths are tried, in order:
+Compatibility is verified. Two access paths are tried, in order:
   1. ATTACH to the REST catalog via DuckDB's iceberg extension.
   2. Fetch the table's metadata location from the REST API and use iceberg_scan().
 Needs network access to install the `iceberg`/`httpfs` extensions on first use.

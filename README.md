@@ -14,7 +14,7 @@
 
 Synthetic multi-provider payment data → Spark → Apache Iceberg on MinIO (REST catalog) → Spark SQL / DuckDB. The goal is not a CSV-to-Parquet ETL: it is to show *why* an organization would manage settlement data as Iceberg tables, and what that costs.
 
-> **Status (read first).** The full pipeline has been run successfully end to end (on a separate machine): Compose stack, Bronze ingestion, Silver transformation and quarantine, CDC `MERGE INTO`, reconciliation and Gold tables, quality checks, Iceberg feature demo and `demo` command. Also verified: synthetic generator, provider mapping and 18 Spark-free unit tests. **Not yet verified:** DuckDB reader / DuckDB-to-Iceberg compatibility and the integration tests (`pytest -m integration`). No Spark/Iceberg timings have been recorded. Trino and Airflow appear only in the documentation.
+> **Status (read first).** The full pipeline has been run successfully end to end (on a separate machine): Compose stack, Bronze ingestion, Silver transformation and quarantine, CDC `MERGE INTO`, reconciliation and Gold tables, quality checks, Iceberg feature demo and `demo` command. Also verified: synthetic generator, provider mapping, 18 Spark-free unit tests, the DuckDB reader and the integration tests (`pytest -m integration`). No Spark/Iceberg timings have been recorded. Trino and Airflow appear only in the documentation.
 
 ---
 
@@ -45,7 +45,7 @@ Source systems → Apache Spark → Bronze / Silver / Gold → Apache Iceberg �
 | REST Catalog | Central table metadata access |
 | Airflow *(design only)* | Workflow orchestration |
 | Trino *(design only)* | Distributed SQL analytics |
-| DuckDB *(not yet verified)* | Lightweight analytical investigation |
+| DuckDB | Lightweight analytical investigation |
 
 Trade-offs and alternatives: [architecture_decisions.md](docs/architecture_decisions.md).
 
@@ -95,8 +95,8 @@ The Compose file is a single-host demo: no redundancy or high availability.
 | Reconciliation (5 classes, configurable) + Gold tables | verified (full pipeline run) |
 | Data quality checks | verified (full pipeline run) |
 | Time travel, rollback, schema/partition evolution, compaction, expiry (`iceberg-demo`) | verified (full pipeline run) |
-| DuckDB reader (`analytics --engine duckdb`) | implemented, compatibility unverified |
-| Integration tests (`pytest -m integration`) | written, not yet run |
+| DuckDB reader (`analytics --engine duckdb`) | verified |
+| Integration tests (`pytest -m integration`) | verified |
 | Parquet vs Iceberg comparison | not implemented |
 
 ## Example output (actual, generator, seed 42)
@@ -120,7 +120,7 @@ SELECT snapshot_id, committed_at, operation FROM bronze.internal_transactions.sn
 Single host; Spark in local mode; REST *fixture* catalog (test-grade); demo credentials and a root-run catalog container; no TLS/RBAC; MinIO built from source because upstream images are no longer published.
 
 ## Roadmap
-1. ~~Run the full pipeline end to end~~ (done). 2. Capture real output and replace the illustrative examples. 3. Verify DuckDB access. 4. Run integration tests and measure resources. 5. Parquet-vs-Iceberg comparison. 6. Optional Trino/Airflow profiles.
+1. ~~Run the full pipeline end to end~~ (done). 2. Capture real output and replace the illustrative examples. 3. ~~Verify DuckDB access~~ (done). 4. ~~Run integration tests~~ (done); measure resources. 5. Parquet-vs-Iceberg comparison. 6. Optional Trino/Airflow profiles.
 
 ## Suggested GitHub settings
 Description: *Production-style, Dockerized Apache Iceberg Lakehouse demonstrating CDC, Spark ETL, multi-provider payment reconciliation, snapshots, and data quality.*

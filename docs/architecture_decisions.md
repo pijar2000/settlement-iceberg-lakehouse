@@ -5,10 +5,10 @@
 3. **MinIO vs public cloud storage.** Data must stay in the private data center. Trade-off: you operate storage durability, upgrades and licensing yourself (Ceph/HDFS are alternatives).
 4. **REST catalog.** A common protocol decouples engines from catalog internals. The fixture used here is for testing; production needs a maintained implementation, with its own database, HA and backups.
 5. **Trino in addition to Spark.** Spark for batch ETL; Trino for interactive SQL and BI. Not included in this repo.
-6. **DuckDB.** Handy for local investigations on a single machine. Iceberg/REST support depends on the DuckDB version and extension; **not yet verified here**.
+6. **DuckDB.** Handy for local investigations on a single machine. Iceberg/REST support depends on the DuckDB version and extension; verified here.
 7. **When this is unnecessary.** Small append-only data, one engine, no audit or correction needs.
 8. **Operational cost.** Catalog operations, compaction, snapshot expiration, orphan-file cleanup, monitoring, upgrades.
-9. **Limitations of this implementation.** Single host, local-mode Spark, synthetic data, demo credentials, REST fixture catalog, no Airflow/Trino, and the Spark pipeline (Bronze to Gold, CDC, Iceberg demo) has been run end to end, but DuckDB access and the integration tests are not yet verified.
+9. **Limitations of this implementation.** Single host, local-mode Spark, synthetic data, demo credentials, REST fixture catalog, no Airflow/Trino, and the Spark pipeline (Bronze to Gold, CDC, Iceberg demo) has been run end to end, and DuckDB access and the integration tests have been verified.
 10. **Alternatives.** Delta Lake or Apache Hudi (table formats); Hive Metastore, Nessie or Polaris-style catalogs; HDFS or Ceph for storage; a warehouse database for small volumes.
 
 ## Decision guide

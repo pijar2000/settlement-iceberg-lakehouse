@@ -46,7 +46,7 @@ ALTER TABLE silver.partner_settlements ADD COLUMNS (
 Old data files are not rewritten; old rows read as NULL for the new columns. In this repo the provider-side change would also need an update to `config/providers.yaml`.
 
 ## 4. Multi-engine analytics
-Spark does ETL, Trino serves SQL, DuckDB supports local investigation, Superset or Power BI read results. One governed table avoids unmanaged copies drifting apart. Compatibility depends on engine and catalog versions, and the REST catalog must be supported by each engine. **In this repo only Spark is configured; Trino is not included and DuckDB is not yet verified.**
+Spark does ETL, Trino serves SQL, DuckDB supports local investigation, Superset or Power BI read results. One governed table avoids unmanaged copies drifting apart. Compatibility depends on engine and catalog versions, and the REST catalog must be supported by each engine. **In this repo only Spark is configured; Trino is not included; DuckDB access is verified.**
 
 ## 5. Small-file problem
 Daily ingestion creates many small files; each adds open/metadata overhead for readers. Iceberg's manifests track files and `rewrite_data_files` compacts them, but compaction must be scheduled and monitored (and expired files cleaned up).

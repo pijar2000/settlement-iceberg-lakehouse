@@ -23,4 +23,4 @@ Spark runs in local mode inside the `pipeline` container, so there is no separat
 
 **Status:** MinIO and the REST catalog were verified healthy on Docker; the Spark/Iceberg pipeline stages have been run end to end successfully. MinIO is built from source (`docker/minio`).
 
-DuckDB reading Iceberg tables via the REST catalog is **not yet verified**; it will be tested before any interoperability claim is made.
+DuckDB reading Iceberg tables via the REST catalog has been verified.
